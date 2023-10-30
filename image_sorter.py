@@ -17,15 +17,19 @@ def copy_files_extension(extension, source, destination):
     print("\nOK\n")
 
 if __name__ == "__main__":
-    if not sys.argv[0]:
+    
+    if len(sys.argv) < 2:
         print("Give extension")
+        print("Press any key to exit...")
+        input()
+        exit()
 
     source_path = os.getcwd()
-    destination_path = os.getcwd()
-
     extension = sys.argv[1]
 
+    destination_path = os.getcwd()
     destination_path = os.path.join(destination_path, extension)
+
     if os.path.isdir(destination_path):
         print("Directory already exists")
         print("Press any key to exit...")
